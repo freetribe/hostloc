@@ -15,7 +15,7 @@ print("用户%s,你的金钱为%s" % (username, Current_money))  # 打印初始�
 for i in range(20359, 20370):
     request1 = requests.get('https://www.hostloc.com/space-uid-%s.html' % i, cookies=cookie)  # 访问循环id用户空间
     print(re.search(r'<title>(.+?)全球主机交流论坛', request1.text).group(1))  # 获取访问的空间标题
-    time.sleep(4)延时1秒，暂时不需要延时
+    time.sleep(4)
     new_money = requests.get('https://www.hostloc.com/home.php?mod=spacecp&ac=credit', cookies=cookie).text  # 重新获取个人积分中心
     new_money = re.search(r'金钱: </em>(\d+).+?</li>', new_money).group(1)  # 获取金钱
     print("金钱为%s" % new_money)  # 打印金钱
